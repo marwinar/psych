@@ -1,0 +1,15 @@
+BEGIN PROGRAM R.
+dev1 <- 4610.7
+dev2 <- 4285
+df_diff <- 1
+
+dev_diff <- dev1 - dev2
+p <- pchisq(dev_diff, df = df_diff, lower.tail=F)
+
+res <- data.frame(dev1 = dev1, dev2 = dev2, df = df_diff, difference = dev_diff, p = p)
+
+spsspivottable.Display(res,
+                       title="Model Comparison",
+                       format=formatSpec.GeneralStat)
+
+END PROGRAM.
